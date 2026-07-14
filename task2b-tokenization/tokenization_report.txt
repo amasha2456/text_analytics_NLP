@@ -1,0 +1,85 @@
+Task 2(b) — Tokenization Scheme Comparison Report
+========================================================================
+
+CORPUS SPLIT
+────────────────────────────────────────────────────────────────────────
+  Total entries  : 47,229
+  Train entries  : 42,506  (90 %)
+  Test entries   : 4,723  (10 %, stratified by length)
+  Target vocab   : 16,000  (sub-word schemes)
+
+══════════════════════════════════════════════════════════════════════════
+SCHEME 1 — Word Tokenization + Stopword Removal + Lemmatization (NLTK)
+────────────────────────────────────────────────────────────────────────
+  Method: NLTK word_tokenize → remove non-alpha → remove English
+  stopwords → WordNetLemmatizer. No fixed vocabulary; any surface
+  form that survives becomes a token.
+    Total tokens     :    1,813,024
+    Unique tokens    :       39,933
+    Vocabulary size  :       39,933
+    Avg tokens/doc   :         38.4
+    Train tokens     :    1,631,863
+    Test tokens      :      181,161
+    Perplexity (bigram) : 6,151.6
+    Compression ratio   : 1.985
+
+══════════════════════════════════════════════════════════════════════════
+SCHEME 2 — Byte Pair Encoding (BPE) — HuggingFace tokenizers
+────────────────────────────────────────────────────────────────────────
+  Method: Start with characters; iteratively merge the most frequent
+  adjacent pair until vocab_size is reached. Trained on training split.
+  Vocab size target: 16,000.
+    Total tokens     :    4,183,854
+    Unique tokens    :       15,606
+    Vocabulary size  :       16,000
+    Avg tokens/doc   :         88.6
+    Train tokens     :    3,758,900
+    Test tokens      :      424,954
+    Perplexity (bigram) : 536.0
+    Compression ratio   : 0.860
+
+══════════════════════════════════════════════════════════════════════════
+SCHEME 3 — WordPiece — HuggingFace tokenizers
+────────────────────────────────────────────────────────────────────────
+  Method: Like BPE but selects merges that maximise likelihood of
+  training data rather than raw frequency. Continuation pieces are
+  prefixed with '##'. Trained on training split. Vocab: 16,000.
+    Total tokens     :    4,212,667
+    Unique tokens    :       15,238
+    Vocabulary size  :       16,000
+    Avg tokens/doc   :         89.2
+    Train tokens     :    3,786,613
+    Test tokens      :      426,054
+    Perplexity (bigram) : 519.9
+    Compression ratio   : 0.854
+
+══════════════════════════════════════════════════════════════════════════
+SCHEME 4 — SentencePiece (Unigram LM) [BONUS]
+────────────────────────────────────────────────────────────────────────
+  Method: Language-model-based sub-word segmentation. Does NOT rely
+  on pre-tokenization (no whitespace assumption), making it robust
+  to scripts without natural word boundaries and to transliterated
+  text (Singlish). Trained on training split. Vocab: 16,000.
+    Total tokens     :    4,236,869
+    Unique tokens    :       16,759
+    Vocabulary size  :       16,000
+    Avg tokens/doc   :         89.7
+    Train tokens     :    3,805,410
+    Test tokens      :      431,459
+    Perplexity (bigram) : 555.3
+    Compression ratio   : 0.850
+
+══════════════════════════════════════════════════════════════════════════
+SUMMARY COMPARISON
+────────────────────────────────────────────────────────────────────────
+  Scheme                      Total tokens     Unique    Vocab   Avg/doc   Perplexity   Compress
+────────────────────────────────────────────────────────────────────────
+  Word+Lemma                     1,813,024     39,933   39,933      38.4      6,151.6      1.985
+  BPE                            4,183,854     15,606   16,000      88.6        536.0      0.860
+  WordPiece                      4,212,667     15,238   16,000      89.2        519.9      0.854
+  SentencePiece [BONUS]          4,236,869     16,759   16,000      89.7        555.3      0.850
+
+RECOMMENDATION (for Task 2c)
+────────────────────────────────────────────────────────────────────────
+  Based on perplexity and compression ratio, the recommended scheme
+  for subsequent LLM tasks is discussed in task2c-evaluation.

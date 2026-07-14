@@ -1,0 +1,65 @@
+r/srilanka — Preprocessing Report
+======================================================================
+
+PIPELINE STEPS
+──────────────────────────────────────────────────────────────────────
+  1.  Combine title + body into full_text
+  2.  Strip Reddit moderation markers ([removed], [deleted], [image], …)
+  3.  Decode HTML entities (&amp; → &, &lt; → <, etc.)
+  4.  Remove HTML tags
+  5.  Remove URLs (http/https/www)
+  6.  Remove Markdown syntax (keep inner text where possible)
+  7.  Remove emojis and non-printable characters
+  8.  Translate Sinhala-script spans → English (Google Translate, si→en)
+  9.  Replace Singlish tokens → English (dictionary, 135 entries)
+  10. Expand common contractions (don't → do not, etc.)
+  11. Collapse repeated punctuation (!!!! → !!)
+  12. NFKC Unicode normalisation + smart-quote → ASCII
+  13. Remove zero-width / invisible characters
+  14. Normalise whitespace (collapse spaces, cap newlines)
+  15. Lowercase all text
+
+TRANSLATION STATISTICS
+──────────────────────────────────────────────────────────────────────
+  Entries with Sinhala script  : 537
+  Entries successfully translated : 537
+  Translation errors (fallback)   : 0
+  Entries with Singlish tokens : 408
+  Singlish dictionary size     : 135 terms
+
+REMOVAL THRESHOLDS
+──────────────────────────────────────────────────────────────────────
+  Lower bound : 10 words
+    Justification: Entries below 10 words are title-only stubs, image/link
+    posts with no body, or fully-removed posts where only the title survives.
+    They carry almost no linguistic content for downstream NLP tasks.
+
+  Upper bound : 500 words
+    Justification: Entries above 500 words exceed the 99th percentile of the
+    raw distribution. They are typically copy-pasted news articles, walls-of-
+    text, or multi-part megaposts that inflate vocabulary statistics and bias
+    length-sensitive models. Capping at P99 removes <1% of documents.
+
+REMOVAL AUDIT
+──────────────────────────────────────────────────────────────────────
+  Raw entries              : 50,013
+  Removed (< 10 words)    : 1,343  (2.69%)
+  Removed (> 500 words)   : 439  (0.88%)
+  Removed (duplicates)     : 1,002  (2.00%)
+  Final corpus size        : 47,229  (94.43% of raw)
+
+CORPUS STATISTICS (cleaned)
+──────────────────────────────────────────────────────────────────────
+  Total words              : 3,599,425
+  Mean words per entry     : 76.2
+  Median words per entry   : 55.0
+  Std dev                  : 71.0
+  Min words                : 10
+  Max words                : 500
+  P25 / P50 / P75          : 30 / 55 / 95
+
+BEFORE vs AFTER WORD COUNT
+──────────────────────────────────────────────────────────────────────
+  Total words (raw)        : 3,929,924
+  Total words (cleaned)    : 3,599,425
+  Reduction                : 8.41%

@@ -1,0 +1,74 @@
+r/srilanka EDA Report
+======================================================================
+
+DATASET DIMENSIONS
+──────────────────────────────────────────────────────────────────────
+Total entries       : 50,013
+Unique post IDs     : 50,013
+Unique authors      : 17,802
+Removed entries     : 0  (0.0%)
+Date range          : 2023-05-28 → 2025-05-19
+Distinct flairs     : 32
+
+LENGTH STATISTICS (words)
+──────────────────────────────────────────────────────────────────────
+  Min       :      2.0
+  Max       :   2773.0
+  Mean      :     78.6
+  Median    :     52.0
+  Std Dev   :     99.1
+  P25       :     28.0
+  P75       :     92.0
+  P90       :    160.0
+  P99       :    469.0
+
+TOP 15 FLAIRS
+──────────────────────────────────────────────────────────────────────
+  Serious replies only                 16173
+  Question                             10518
+  Discussion                            6899
+  Travel                                3141
+  Education                             1995
+  News                                  1739
+  Politics                              1694
+  Rant                                  1268
+  Answered                               736
+  Employment                             672
+  Unverified                             667
+  Meme                                   627
+  Technology                             616
+  Satire                                 488
+  Rumour                                 484
+
+TOP 30 WORDS
+──────────────────────────────────────────────────────────────────────
+  sri                   34,943
+  lanka                 26,266
+  like                  16,167
+  know                  14,083
+  get                   13,160
+  anyone                12,786
+  would                 11,639
+  good                  11,245
+  colombo               11,188
+  people                 9,028
+  need                   8,758
+  one                    8,642
+  looking                8,234
+  time                   8,137
+  help                   8,019
+  want                   7,386
+  lankan                 7,356
+  also                   6,535
+  best                   6,489
+  even                   6,329
+  buy                    5,991
+  guys                   5,859
+  around                 5,808
+  please                 5,784
+  got                    5,345
+  really                 5,319
+  advice                 5,318
+  find                   5,304
+  place                  5,295
+  much                   5,259

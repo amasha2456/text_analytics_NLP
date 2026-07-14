@@ -1,0 +1,93 @@
+Task 3(a) — Clustering & Topic Modelling Report
+========================================================================
+
+METHOD A — K-Means on TF-IDF + LSA (primary, produces silver labels)
+────────────────────────────────────────────────────────────────────────
+  Vectoriser   : TF-IDF  (max_features=50,000  ngram=(1,2)  sublinear_tf)
+  Dimensionality reduction : TruncatedSVD (100 dims, LSA)
+  Explained variance after SVD : 8.2%
+  k range evaluated : 5 – 20
+  Metric used       : Silhouette score (cosine, 8k sample)
+  Best k            : 17  (silhouette=0.1242)
+
+METHOD B — LDA Topic Modelling (cross-validation)
+────────────────────────────────────────────────────────────────────────
+  Library         : Gensim LdaModel
+  n_topics range  : 5 – 20
+  Metric used     : Coherence score (c_v)
+  Best n_topics   : 14  (coherence=0.5590)
+
+RAW CLUSTER ASSIGNMENTS  (K-Means, k=17)
+────────────────────────────────────────────────────────────────────────
+  Cluster Raw Label                              Final Category                         Size
+────────────────────────────────────────────────────────────────────────
+  0     Shopping & Colombo Recommendations     Shopping & Local Recommendations      1,844
+  1     Relationships & Social Life            Relationships & Social Life           5,057
+  2     Employment & Tech Jobs                 Employment & Career                   2,583
+  3     General Q&A                            Help & General Q&A                    1,661
+  4     Transport & Vehicles                   Transport & Vehicles                  1,673
+  5     Title-Only / Generic Posts             Help & General Q&A                      587
+  6     Local Recommendations                  Shopping & Local Recommendations      1,850
+  7     General Sri Lanka Discussion           Sri Lanka Identity & Culture          6,432
+  8     Help Requests                          Help & General Q&A                    2,584
+  9     Politics & National Affairs            Politics & National Affairs           3,378
+  10    Miscellaneous Discussion               Help & General Q&A                    1,398
+  11    Sri Lanka Identity & Culture           Sri Lanka Identity & Culture          2,342
+  12    Travel & Tourism (Colombo area)        Travel & Tourism                      2,582
+  13    Sri Lanka Expat & Identity             Sri Lanka Identity & Culture            771
+  14    Education & University                 Education                             2,537
+  15    Finance, Banking & Telecoms            Finance, Banking & Telecoms           6,586
+  16    Travel & Tourism (Upcountry)           Travel & Tourism                      3,364
+
+10 FINAL SILVER-STANDARD CATEGORIES
+────────────────────────────────────────────────────────────────────────
+  Category                                    Posts   % of corpus
+────────────────────────────────────────────────────────────────────────
+  Sri Lanka Identity & Culture                9,545         20.2%
+  Finance, Banking & Telecoms                 6,586         13.9%
+  Help & General Q&A                          6,230         13.2%
+  Travel & Tourism                            5,946         12.6%
+  Relationships & Social Life                 5,057         10.7%
+  Shopping & Local Recommendations            3,694          7.8%
+  Politics & National Affairs                 3,378          7.2%
+  Employment & Career                         2,583          5.5%
+  Education                                   2,537          5.4%
+  Transport & Vehicles                        1,673          3.5%
+
+LDA TOP WORDS PER TOPIC  (n=14)
+────────────────────────────────────────────────────────────────────────
+  Topic  0 : work, company, job, visa, working, salary, business, get, experience, software
+  Topic  1 : bank, card, account, money, payment, credit, online, police, best, way
+  Topic  2 : bus, ticket, train, get, driver, car, airport, license, driving, colombo
+  Topic  3 : degree, university, student, school, study, year, engineering, good, science, uni
+  Topic  4 : tamil, country, government, sinhalese, party, news, history, team, world, power
+  Topic  5 : like, get, year, time, even, friend, one, thing, know, want
+  Topic  6 : buy, good, place, colombo, best, looking, know, anyone, get, shop
+  Topic  7 : anyone, package, data, number, get, using, dialog, slt, passport, issue
+  Topic  8 : price, tax, cost, much, pay, lkr, vehicle, rate, car, would
+  Topic  9 : help, would, need, advice, please, anyone, know, looking, someone, find
+  Topic 10 : colombo, day, place, would, kandy, around, travel, visit, time, trip
+  Topic 11 : people, like, think, post, thought, many, woman, opinion, country, would
+  Topic 12 : anyone, know, watch, game, name, like, video, guy, find, movie
+  Topic 13 : sri, lanka, lankan, lankans, country, india, indian, cricket, living, best
+
+FINAL CATEGORY SIZE DISTRIBUTION
+────────────────────────────────────────────────────────────────────────
+  Largest  : 9,545  (Sri Lanka Identity & Culture)
+  Smallest : 1,673  (Transport & Vehicles)
+  Mean     : 4,723
+  Std dev  : 2,407
+
+QUALITY CHECK — Final Category vs Reddit Flairs
+────────────────────────────────────────────────────────────────────────
+  Flairs are user-assigned and noisy; comparison is indicative only.
+  Education                           → Serious replies only(1026)  |  Education(816)  |  Question(310)
+  Employment & Career                 → Serious replies only(1128)  |  Question(414)  |  Employment(359)
+  Finance, Banking & Telecoms         → Serious replies only(2200)  |  Question(1685)  |  Discussion(950)
+  Help & General Q&A                  → Serious replies only(2298)  |  Question(1721)  |  Discussion(814)
+  Politics & National Affairs         → Politics(857)  |  Discussion(651)  |  Serious replies only(541)
+  Relationships & Social Life         → Serious replies only(1634)  |  Discussion(1062)  |  Question(674)
+  Shopping & Local Recommendations    → Serious replies only(1395)  |  Question(1342)  |  Discussion(387)
+  Sri Lanka Identity & Culture        → Serious replies only(2764)  |  Question(2002)  |  Discussion(1547)
+  Transport & Vehicles                → Serious replies only(603)  |  Question(412)  |  Discussion(262)
+  Travel & Tourism                    → Serious replies only(1880)  |  Travel(1553)  |  Question(1432)
