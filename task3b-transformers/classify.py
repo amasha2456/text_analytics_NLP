@@ -275,12 +275,12 @@ def main():
         )
 
         trainer = Trainer(
-            model           = model,
-            args            = training_args,
-            train_dataset   = train_ds,
-            eval_dataset    = test_ds,
-            tokenizer       = tokenizer,
-            data_collator   = collator,
+            model            = model,
+            args             = training_args,
+            train_dataset    = train_ds,
+            eval_dataset     = test_ds,
+            processing_class = tokenizer,
+            data_collator    = collator,
             compute_metrics = compute_metrics,
             callbacks       = [EarlyStoppingCallback(early_stopping_patience=2)],
         )
