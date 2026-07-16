@@ -40,8 +40,8 @@ LR          = 2e-5
 TEST_SIZE   = 0.20
 
 MODELS = {
-    "bert-base-uncased": "bert-base-uncased",
-    "roberta-base":      "roberta-base",
+    "bert-base-uncased": "google-bert/bert-base-uncased",
+    "roberta-base":      "FacebookAI/roberta-base",
 }
 
 BASE       = Path(__file__).parent
