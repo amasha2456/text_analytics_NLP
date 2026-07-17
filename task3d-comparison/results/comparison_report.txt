@@ -4,21 +4,33 @@ Task 3(d) — Comprehensive Model Comparison
 MODELS COMPARED
   BERT (fine-tuned)            [Fine-tuned Transformer]
   RoBERTa (fine-tuned)         [Fine-tuned Transformer]
-  BART-MNLI (zero-shot)        [Zero-Shot LLM]
-  DeBERTa-v3 (zero-shot)       [Zero-Shot LLM]
+  BART-MNLI (NLI zero-shot)    [Zero-Shot NLI Classifier]
+  DeBERTa-v3 (NLI zero-shot)   [Zero-Shot NLI Classifier]
+  Qwen2.5-1.5B (zero-shot prompt) [Decoder LLM (Zero-Shot)]
+  Qwen2.5-1.5B (few-shot prompt) [Decoder LLM (Few-Shot)]
+  Phi-3-mini (zero-shot prompt) [Decoder LLM (Zero-Shot)]
+  Phi-3-mini (few-shot prompt) [Decoder LLM (Few-Shot)]
 
 SUMMARY
   Model                      Category                  Accuracy    F1-Wt   F1-Mac
   ------------------------------------------------------------------------------
   BERT (fine-tuned)          Fine-tuned Transformer      0.8800   0.8800   0.8700
   RoBERTa (fine-tuned)       Fine-tuned Transformer      0.8700   0.8700   0.8600
-  DeBERTa-v3 (zero-shot)     Zero-Shot LLM               0.3600   0.3300   0.3800
-  BART-MNLI (zero-shot)      Zero-Shot LLM               0.2300   0.2000   0.2300
+  Phi-3-mini (few-shot prompt) Decoder LLM (Few-Shot)      0.3500   0.3400   0.3600
+  DeBERTa-v3 (NLI zero-shot) Zero-Shot NLI Classifier    0.3600   0.3300   0.3800
+  Phi-3-mini (zero-shot prompt) Decoder LLM (Zero-Shot)     0.3400   0.3300   0.3500
+  Qwen2.5-1.5B (few-shot prompt) Decoder LLM (Few-Shot)      0.2700   0.2600   0.2700
+  BART-MNLI (NLI zero-shot)  Zero-Shot NLI Classifier    0.2300   0.2000   0.2300
+  Qwen2.5-1.5B (zero-shot prompt) Decoder LLM (Zero-Shot)     0.1700   0.1700   0.1900
 
 PER-CLASS F1
-                        Education  Employment & Career  Finance, Banking & Telecoms  Help & General Q&A  Politics & National Affairs  Relationships & Social Life  Shopping & Local Recommendations  Sri Lanka Identity & Culture  Transport & Vehicles  Travel & Tourism
-model                                                                                                                                                                                                                                                                    
-BERT (fine-tuned)            0.89                 0.84                         0.85                0.88                         0.84                         0.80                              0.90                          0.94                  0.85              0.92
-RoBERTa (fine-tuned)         0.89                 0.83                         0.84                0.87                         0.82                         0.80                              0.90                          0.93                  0.84              0.90
-BART-MNLI (zero-shot)        0.41                 0.37                         0.04                0.26                         0.19                         0.18                              0.12                          0.12                  0.31              0.32
-DeBERTa-v3 (zero-shot)       0.59                 0.52                         0.31                0.29                         0.41                         0.39                              0.38                          0.09                  0.36              0.47
+                                 Education  Employment & Career  Finance, Banking & Telecoms  Help & General Q&A  Politics & National Affairs  Relationships & Social Life  Shopping & Local Recommendations  Sri Lanka Identity & Culture  Transport & Vehicles  Travel & Tourism
+model                                                                                                                                                                                                                                                                             
+BERT (fine-tuned)                     0.89                 0.84                         0.85                0.88                         0.84                         0.80                              0.90                          0.94                  0.85              0.92
+RoBERTa (fine-tuned)                  0.89                 0.83                         0.84                0.87                         0.82                         0.80                              0.90                          0.93                  0.84              0.90
+BART-MNLI (NLI zero-shot)             0.41                 0.37                         0.04                0.26                         0.19                         0.18                              0.12                          0.12                  0.31              0.32
+DeBERTa-v3 (NLI zero-shot)            0.59                 0.52                         0.31                0.29                         0.41                         0.39                              0.38                          0.09                  0.36              0.47
+Qwen2.5-1.5B (zero-shot prompt)       0.13                 0.16                         0.28                0.03                         0.32                         0.10                              0.36                          0.00                  0.07              0.40
+Qwen2.5-1.5B (few-shot prompt)        0.21                 0.14                         0.32                0.16                         0.38                         0.33                              0.40                          0.02                  0.18              0.52
+Phi-3-mini (zero-shot prompt)         0.52                 0.45                         0.38                0.20                         0.32                         0.32                              0.35                          0.27                  0.31              0.41
+Phi-3-mini (few-shot prompt)          0.42                 0.43                         0.42                0.20                         0.38                         0.37                              0.39                          0.24                  0.34              0.43

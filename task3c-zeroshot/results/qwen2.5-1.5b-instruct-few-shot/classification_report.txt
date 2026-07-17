@@ -1,0 +1,26 @@
+Model    : Qwen/Qwen2.5-1.5B-Instruct
+Strategy : few-shot
+============================================================
+
+Accuracy       : 0.2720
+F1 Weighted    : 0.2558
+F1 Macro       : 0.2669
+Unparsed rate  : 0.75%
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.12      0.98      0.21       107
+             Employment & Career       0.43      0.08      0.14       109
+     Finance, Banking & Telecoms       0.44      0.25      0.32       279
+              Help & General Q&A       0.22      0.13      0.16       264
+     Politics & National Affairs       0.45      0.32      0.38       143
+     Relationships & Social Life       0.56      0.23      0.33       214
+Shopping & Local Recommendations       0.42      0.38      0.40       157
+    Sri Lanka Identity & Culture       1.00      0.01      0.02       404
+            Transport & Vehicles       0.15      0.24      0.18        71
+                Travel & Tourism       0.47      0.59      0.52       252
+
+                       micro avg       0.27      0.27      0.27      2000
+                    accuracy                         0.27      2000
+                       macro avg       0.43      0.32      0.27      2000
+                    weighted avg       0.51      0.27      0.26      2000

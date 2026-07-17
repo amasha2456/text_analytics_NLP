@@ -1,0 +1,26 @@
+Model    : microsoft/Phi-3-mini-4k-instruct
+Strategy : few-shot
+============================================================
+
+Accuracy       : 0.3460
+F1 Weighted    : 0.3415
+F1 Macro       : 0.3606
+Unparsed rate  : 1.30%
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.41      0.43      0.42       107
+             Employment & Career       0.30      0.73      0.43       109
+     Finance, Banking & Telecoms       0.48      0.38      0.42       279
+              Help & General Q&A       0.17      0.23      0.20       264
+     Politics & National Affairs       0.28      0.57      0.38       143
+     Relationships & Social Life       0.50      0.29      0.37       214
+Shopping & Local Recommendations       0.31      0.52      0.39       157
+    Sri Lanka Identity & Culture       0.60      0.15      0.24       404
+            Transport & Vehicles       0.29      0.41      0.34        71
+                Travel & Tourism       0.58      0.35      0.43       252
+
+                       micro avg       0.35      0.35      0.35      2000
+                    accuracy                         0.35      2000
+                       macro avg       0.39      0.41      0.36      2000
+                    weighted avg       0.43      0.35      0.34      2000

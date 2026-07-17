@@ -16,8 +16,12 @@ BASE = Path(__file__).parent
 MODELS = {
     "BERT (fine-tuned)":    ("Fine-tuned Transformer", BASE.parent / "task3b-transformers" / "results" / "bert-base-uncased" / "classification_report.txt"),
     "RoBERTa (fine-tuned)": ("Fine-tuned Transformer", BASE.parent / "task3b-transformers" / "results" / "roberta-base" / "classification_report.txt"),
-    "BART-MNLI (zero-shot)":    ("Zero-Shot LLM", BASE.parent / "task3c-zeroshot" / "results" / "bart-large-mnli" / "classification_report.txt"),
-    "DeBERTa-v3 (zero-shot)":   ("Zero-Shot LLM", BASE.parent / "task3c-zeroshot" / "results" / "deberta-v3-zeroshot" / "classification_report.txt"),
+    "BART-MNLI (NLI zero-shot)":    ("Zero-Shot NLI Classifier", BASE.parent / "task3c-zeroshot" / "results" / "bart-large-mnli" / "classification_report.txt"),
+    "DeBERTa-v3 (NLI zero-shot)":   ("Zero-Shot NLI Classifier", BASE.parent / "task3c-zeroshot" / "results" / "deberta-v3-zeroshot" / "classification_report.txt"),
+    "Qwen2.5-1.5B (zero-shot prompt)":  ("Decoder LLM (Zero-Shot)", BASE.parent / "task3c-zeroshot" / "results" / "qwen2.5-1.5b-instruct-zero-shot" / "classification_report.txt"),
+    "Qwen2.5-1.5B (few-shot prompt)":   ("Decoder LLM (Few-Shot)",  BASE.parent / "task3c-zeroshot" / "results" / "qwen2.5-1.5b-instruct-few-shot" / "classification_report.txt"),
+    "Phi-3-mini (zero-shot prompt)":    ("Decoder LLM (Zero-Shot)", BASE.parent / "task3c-zeroshot" / "results" / "phi-3-mini-instruct-zero-shot" / "classification_report.txt"),
+    "Phi-3-mini (few-shot prompt)":     ("Decoder LLM (Few-Shot)",  BASE.parent / "task3c-zeroshot" / "results" / "phi-3-mini-instruct-few-shot" / "classification_report.txt"),
 }
 
 OUT_DIR  = BASE / "results"

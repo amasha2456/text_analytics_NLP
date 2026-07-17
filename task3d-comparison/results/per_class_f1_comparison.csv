@@ -1,5 +1,9 @@
 model,Education,Employment & Career,"Finance, Banking & Telecoms",Help & General Q&A,Politics & National Affairs,Relationships & Social Life,Shopping & Local Recommendations,Sri Lanka Identity & Culture,Transport & Vehicles,Travel & Tourism
 BERT (fine-tuned),0.89,0.84,0.85,0.88,0.84,0.8,0.9,0.94,0.85,0.92
 RoBERTa (fine-tuned),0.89,0.83,0.84,0.87,0.82,0.8,0.9,0.93,0.84,0.9
-BART-MNLI (zero-shot),0.41,0.37,0.04,0.26,0.19,0.18,0.12,0.12,0.31,0.32
-DeBERTa-v3 (zero-shot),0.59,0.52,0.31,0.29,0.41,0.39,0.38,0.09,0.36,0.47
+BART-MNLI (NLI zero-shot),0.41,0.37,0.04,0.26,0.19,0.18,0.12,0.12,0.31,0.32
+DeBERTa-v3 (NLI zero-shot),0.59,0.52,0.31,0.29,0.41,0.39,0.38,0.09,0.36,0.47
+Qwen2.5-1.5B (zero-shot prompt),0.13,0.16,0.28,0.03,0.32,0.1,0.36,0.0,0.07,0.4
+Qwen2.5-1.5B (few-shot prompt),0.21,0.14,0.32,0.16,0.38,0.33,0.4,0.02,0.18,0.52
+Phi-3-mini (zero-shot prompt),0.52,0.45,0.38,0.2,0.32,0.32,0.35,0.27,0.31,0.41
+Phi-3-mini (few-shot prompt),0.42,0.43,0.42,0.2,0.38,0.37,0.39,0.24,0.34,0.43
