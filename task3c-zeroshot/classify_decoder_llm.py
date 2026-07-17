@@ -41,7 +41,7 @@ from transformers.utils import logging as hf_logging
 
 hf_logging.set_verbosity_error()
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -159,6 +159,19 @@ def parse_label(response, label_names):
     if candidates:
         return max(candidates, key=len)
     return "UNPARSED"
+
+
+def inject_accuracy_line(rep_str, acc, support):
+    """sklearn's classification_report drops the 'accuracy' row (replacing it
+    with 'micro avg') whenever y_pred contains a value outside `labels`
+    (our UNPARSED bucket) — splice in a consistent row ourselves so every
+    run's report has the same shape regardless of unparsed rate, and so
+    downstream parsers (task3d's compare_models.py) see one format."""
+    lines = [l for l in rep_str.split("\n") if not l.strip().startswith("accuracy")]
+    acc_line = f"{'accuracy':>28}{'':>19}{acc:>10.2f}{support:>10d}"
+    idx = next((i for i, l in enumerate(lines) if l.strip().startswith("macro avg")), len(lines))
+    lines.insert(idx, acc_line)
+    return "\n".join(lines)
 
 
 # ── Plots ─────────────────────────────────────────────────────────────────────
@@ -312,6 +325,11 @@ def main():
                 "raw_response": responses, "pred_label": preds,
             }).to_csv(run_out / "predictions.csv", index=False)
 
+            # UNPARSED predictions fall outside `labels`, which makes sklearn drop the
+            # 'accuracy' key/row entirely (see inject_accuracy_line docstring) — compute
+            # it directly instead so UNPARSED is correctly counted as an incorrect prediction.
+            acc = accuracy_score(y_eval, preds)
+
             rep_dict = classification_report(
                 y_eval, preds, labels=label_names, target_names=label_names,
                 output_dict=True, zero_division=0,
@@ -319,24 +337,25 @@ def main():
             rep_str = classification_report(
                 y_eval, preds, labels=label_names, target_names=label_names, zero_division=0,
             )
+            rep_str = inject_accuracy_line(rep_str, acc, len(y_eval))
 
             all_reports[run_key] = {
                 "report": rep_dict,
                 "report_str": rep_str,
-                "accuracy": rep_dict["accuracy"],
+                "accuracy": acc,
                 "f1_weighted": rep_dict["weighted avg"]["f1-score"],
                 "f1_macro": rep_dict["macro avg"]["f1-score"],
                 "unparsed_rate": unparsed_rate,
             }
 
-            print(f"  Accuracy     : {rep_dict['accuracy']:.4f}")
+            print(f"  Accuracy     : {acc:.4f}")
             print(f"  F1 (Weighted): {rep_dict['weighted avg']['f1-score']:.4f}")
             print(f"  F1 (Macro)   : {rep_dict['macro avg']['f1-score']:.4f}")
             print(rep_str)
 
             with open(run_out / "classification_report.txt", "w") as f:
                 f.write(f"Model    : {model_name}\nStrategy : {strategy}\n{'='*60}\n\n")
-                f.write(f"Accuracy       : {rep_dict['accuracy']:.4f}\n")
+                f.write(f"Accuracy       : {acc:.4f}\n")
                 f.write(f"F1 Weighted    : {rep_dict['weighted avg']['f1-score']:.4f}\n")
                 f.write(f"F1 Macro       : {rep_dict['macro avg']['f1-score']:.4f}\n")
                 f.write(f"Unparsed rate  : {unparsed_rate:.2%}\n\n")
