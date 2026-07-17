@@ -30,7 +30,6 @@ PROMPT DESIGN (see PROMPT_DESIGN.md for the full writeup):
     single-label classification task.
 """
 import gc
-import random
 import warnings
 from pathlib import Path
 
@@ -38,6 +37,9 @@ import numpy as np
 import pandas as pd
 import torch
 from transformers import pipeline
+from transformers.utils import logging as hf_logging
+
+hf_logging.set_verbosity_error()
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
 import matplotlib
