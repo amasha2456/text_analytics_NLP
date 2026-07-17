@@ -1,5 +1,6 @@
-# Fine-tuned model checkpoints — too large for GitHub (>100MB), reproducible via classify.py
+# Fine-tuned model checkpoints — too large for GitHub (>100MB), reproducible by re-running the scripts
 task3b-transformers/results/*/model/
+task4-extraction/results/*/model/
 
 # Python
 __pycache__/
