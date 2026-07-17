@@ -1,0 +1,23 @@
+Model : facebook/bart-large-mnli
+============================================================
+
+Accuracy     : 0.2321
+F1 Weighted  : 0.1989
+F1 Macro     : 0.2310
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.45      0.37      0.41       507
+             Employment & Career       0.43      0.32      0.37       517
+     Finance, Banking & Telecoms       0.69      0.02      0.04      1317
+              Help & General Q&A       0.15      0.81      0.26      1246
+     Politics & National Affairs       0.73      0.11      0.19       676
+     Relationships & Social Life       0.43      0.11      0.18      1011
+Shopping & Local Recommendations       0.35      0.07      0.12       739
+    Sri Lanka Identity & Culture       0.38      0.07      0.12      1909
+            Transport & Vehicles       0.29      0.34      0.31       335
+                Travel & Tourism       0.41      0.26      0.32      1189
+
+                        accuracy                           0.23      9446
+                       macro avg       0.43      0.25      0.23      9446
+                    weighted avg       0.43      0.23      0.20      9446

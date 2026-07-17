@@ -1,0 +1,58 @@
+Task 3(c) — Zero-Shot Classification Report
+======================================================================
+
+SETTINGS
+  Models              : bart-large-mnli, deberta-v3-zeroshot
+  Hypothesis template : "This Reddit post is about {}."
+  Test size           : 9,446 (same split as task3b)
+  Device              : 0
+
+MODEL COMPARISON
+  Model                          Accuracy  F1-Weighted   F1-Macro
+  ------------------------------------------------------------
+  bart-large-mnli                  0.2321       0.1989     0.2310
+  deberta-v3-zeroshot              0.3621       0.3341     0.3827
+
+
+
+============================================================
+  Model : bart-large-mnli
+============================================================
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.45      0.37      0.41       507
+             Employment & Career       0.43      0.32      0.37       517
+     Finance, Banking & Telecoms       0.69      0.02      0.04      1317
+              Help & General Q&A       0.15      0.81      0.26      1246
+     Politics & National Affairs       0.73      0.11      0.19       676
+     Relationships & Social Life       0.43      0.11      0.18      1011
+Shopping & Local Recommendations       0.35      0.07      0.12       739
+    Sri Lanka Identity & Culture       0.38      0.07      0.12      1909
+            Transport & Vehicles       0.29      0.34      0.31       335
+                Travel & Tourism       0.41      0.26      0.32      1189
+
+                        accuracy                           0.23      9446
+                       macro avg       0.43      0.25      0.23      9446
+                    weighted avg       0.43      0.23      0.20      9446
+
+============================================================
+  Model : deberta-v3-zeroshot
+============================================================
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.44      0.90      0.59       507
+             Employment & Career       0.46      0.60      0.52       517
+     Finance, Banking & Telecoms       0.43      0.25      0.31      1317
+              Help & General Q&A       0.21      0.47      0.29      1246
+     Politics & National Affairs       0.40      0.43      0.41       676
+     Relationships & Social Life       0.46      0.34      0.39      1011
+Shopping & Local Recommendations       0.46      0.33      0.38       739
+    Sri Lanka Identity & Culture       0.47      0.05      0.09      1909
+            Transport & Vehicles       0.25      0.61      0.36       335
+                Travel & Tourism       0.47      0.47      0.47      1189
+
+                        accuracy                           0.36      9446
+                       macro avg       0.41      0.45      0.38      9446
+                    weighted avg       0.41      0.36      0.33      9446

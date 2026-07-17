@@ -1,0 +1,63 @@
+Task 3(b) — Encoder-Only Transformer Classification Report
+======================================================================
+
+SETTINGS
+  Models              : bert-base-uncased, roberta-base
+  Max sequence length : 128 tokens
+  Batch size          : 16
+  Epochs              : 3
+  Learning rate       : 2e-05
+  Train / Test split  : 80% / 20%
+  Train size          : 37,783
+  Test size           : 9,446
+  Device              : cuda
+
+MODEL COMPARISON
+  Model                          Accuracy  F1-Weighted   F1-Macro
+  ------------------------------------------------------------
+  bert-base-uncased                0.8801       0.8794     0.8704
+  roberta-base                     0.8734       0.8728     0.8635
+
+
+
+============================================================
+  Model : bert-base-uncased
+============================================================
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.86      0.93      0.89       507
+             Employment & Career       0.83      0.84      0.84       517
+     Finance, Banking & Telecoms       0.85      0.85      0.85      1317
+              Help & General Q&A       0.88      0.87      0.88      1246
+     Politics & National Affairs       0.85      0.83      0.84       676
+     Relationships & Social Life       0.84      0.77      0.80      1011
+Shopping & Local Recommendations       0.89      0.91      0.90       739
+    Sri Lanka Identity & Culture       0.92      0.95      0.94      1909
+            Transport & Vehicles       0.87      0.84      0.85       335
+                Travel & Tourism       0.92      0.91      0.92      1189
+
+                        accuracy                           0.88      9446
+                       macro avg       0.87      0.87      0.87      9446
+                    weighted avg       0.88      0.88      0.88      9446
+
+============================================================
+  Model : roberta-base
+============================================================
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.89      0.90      0.89       507
+             Employment & Career       0.81      0.85      0.83       517
+     Finance, Banking & Telecoms       0.85      0.83      0.84      1317
+              Help & General Q&A       0.86      0.88      0.87      1246
+     Politics & National Affairs       0.83      0.82      0.82       676
+     Relationships & Social Life       0.84      0.76      0.80      1011
+Shopping & Local Recommendations       0.87      0.94      0.90       739
+    Sri Lanka Identity & Culture       0.92      0.95      0.93      1909
+            Transport & Vehicles       0.86      0.82      0.84       335
+                Travel & Tourism       0.91      0.90      0.90      1189
+
+                        accuracy                           0.87      9446
+                       macro avg       0.86      0.86      0.86      9446
+                    weighted avg       0.87      0.87      0.87      9446

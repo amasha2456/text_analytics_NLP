@@ -1,0 +1,23 @@
+Model : google-bert/bert-base-uncased
+============================================================
+
+Accuracy     : 0.8801
+F1 Weighted  : 0.8794
+F1 Macro     : 0.8704
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.86      0.93      0.89       507
+             Employment & Career       0.83      0.84      0.84       517
+     Finance, Banking & Telecoms       0.85      0.85      0.85      1317
+              Help & General Q&A       0.88      0.87      0.88      1246
+     Politics & National Affairs       0.85      0.83      0.84       676
+     Relationships & Social Life       0.84      0.77      0.80      1011
+Shopping & Local Recommendations       0.89      0.91      0.90       739
+    Sri Lanka Identity & Culture       0.92      0.95      0.94      1909
+            Transport & Vehicles       0.87      0.84      0.85       335
+                Travel & Tourism       0.92      0.91      0.92      1189
+
+                        accuracy                           0.88      9446
+                       macro avg       0.87      0.87      0.87      9446
+                    weighted avg       0.88      0.88      0.88      9446

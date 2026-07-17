@@ -1,0 +1,23 @@
+Model : MoritzLaurer/deberta-v3-base-zeroshot-v1.1-all-33
+============================================================
+
+Accuracy     : 0.3621
+F1 Weighted  : 0.3341
+F1 Macro     : 0.3827
+
+                                  precision    recall  f1-score   support
+
+                       Education       0.44      0.90      0.59       507
+             Employment & Career       0.46      0.60      0.52       517
+     Finance, Banking & Telecoms       0.43      0.25      0.31      1317
+              Help & General Q&A       0.21      0.47      0.29      1246
+     Politics & National Affairs       0.40      0.43      0.41       676
+     Relationships & Social Life       0.46      0.34      0.39      1011
+Shopping & Local Recommendations       0.46      0.33      0.38       739
+    Sri Lanka Identity & Culture       0.47      0.05      0.09      1909
+            Transport & Vehicles       0.25      0.61      0.36       335
+                Travel & Tourism       0.47      0.47      0.47      1189
+
+                        accuracy                           0.36      9446
+                       macro avg       0.41      0.45      0.38      9446
+                    weighted avg       0.41      0.36      0.33      9446

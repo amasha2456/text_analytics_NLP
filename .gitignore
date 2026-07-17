@@ -1,0 +1,9 @@
+# Fine-tuned model checkpoints — too large for GitHub (>100MB), reproducible via classify.py
+task3b-transformers/results/*/model/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
