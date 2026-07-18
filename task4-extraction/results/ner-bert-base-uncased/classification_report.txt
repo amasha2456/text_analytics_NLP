@@ -1,0 +1,25 @@
+Model : google-bert/bert-base-uncased (token classification, entity-level scoring)
+============================================================
+
+F1 Micro   : 0.3750
+F1 Macro   : 0.3214
+Precision  : 0.4245
+Recall     : 0.3358
+
+                     precision    recall  f1-score   support
+COMPANY                   0.45      0.36      0.40        14
+EMPLOYMENT_TYPE           0.36      0.38      0.37        13
+EXPERIENCE                0.71      0.33      0.45        15
+JOB_TITLE                 0.16      0.14      0.15        22
+LOCATION                  0.43      0.43      0.43        21
+SALARY                    0.00      0.00      0.00         3
+SKILL                     0.53      0.39      0.45        46
+micro avg                 0.42      0.34      0.38       134
+macro avg                 0.38      0.29      0.32       134
+
+EFFICIENCY (comparison point vs. extract_llm.py's timing in results/extraction_report.txt)
+  Train examples      : 353
+  Training time       : 227.2s (0.644s/example)
+  Test examples       : 97
+  Inference time      : 0.5s (0.005s/example)
+  Saved model size    : 436.4 MB
