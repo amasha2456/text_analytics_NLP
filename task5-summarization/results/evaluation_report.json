@@ -1,0 +1,47 @@
+{
+  "factual_consistency": {
+    "percentages_found": [
+      {
+        "value": 1.4,
+        "allowed": true
+      },
+      {
+        "value": 54.6,
+        "allowed": true
+      },
+      {
+        "value": 6.3,
+        "allowed": true
+      }
+    ],
+    "counts_found": [
+      {
+        "value": 489,
+        "allowed": true
+      }
+    ],
+    "n_numbers_checked": 4,
+    "n_flagged_unsupported": 0,
+    "consistency_rate": 1.0
+  },
+  "judge_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "judge_scores": {
+    "coherence": {
+      "score": 4,
+      "reason": "The report is well-organized and follows a logical structure, covering all key points related to job seekers, employers, and policymakers."
+    },
+    "relevance": {
+      "score": 4,
+      "reason": "The report stays focused on jobs and careers in Sri Lanka without going off-topic, providing relevant information across different groups."
+    },
+    "conciseness": {
+      "score": 4,
+      "reason": "The report is appropriately brief without unnecessary repetition, balancing detail with brevity effectively."
+    },
+    "absence_of_hallucination": {
+      "score": 4,
+      "reason": "The report avoids making confident claims that sound too specific or invented, maintaining an appropriate level of generality."
+    }
+  },
+  "judge_raw_response": "{\n  \"coherence\": {\n    \"score\": 4,\n    \"reason\": \"The report is well-organized and follows a logical structure, covering all key points related to job seekers, employers, and policymakers.\"\n  },\n  \"relevance\": {\n    \"score\": 4,\n    \"reason\": \"The report stays focused on jobs and careers in Sri Lanka without going off-topic, providing relevant information across different groups.\"\n  },\n  \"conciseness\": {\n    \"score\": 4,\n    \"reason\": \"The report is appropriately brief without unnecessary repetition, balancing detail with brevity effectively.\"\n  },\n  \"absence_of_hallucination\": {\n    \"score\": 4,\n    \"reason\": \"The report avoids making confident claims that sound too specific or invented, maintaining an appropriate level of generality.\"\n  }\n}"
+}
