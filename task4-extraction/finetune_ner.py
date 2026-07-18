@@ -265,6 +265,8 @@ def main():
         warmup_ratio=0.06,
         eval_strategy="epoch",
         save_strategy="epoch",
+        save_total_limit=1,  # keep only the best checkpoint on disk — with up to 15 epochs
+                              # and no cap, this was silently accumulating ~1-1.3GB per epoch
         load_best_model_at_end=True,
         metric_for_best_model="f1_micro",
         greater_is_better=True,
