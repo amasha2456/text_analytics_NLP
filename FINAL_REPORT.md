@@ -1,3 +1,11 @@
+### CMM706 – Coursework
+#### June 2026
+
+##### Name: Amasha Vidumini
+##### IIT ID: 20260078 | RGU ID: 2617079
+
+---
+
 # Final Report
 
 *Word count: ~1,230 (Parts A and B combined, excluding this line)*
