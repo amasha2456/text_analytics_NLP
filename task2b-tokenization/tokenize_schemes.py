@@ -1,7 +1,7 @@
 """
 Task 2(b) — Tokenization Scheme Comparison
 ============================================
-Input  : ../data-clean&preprocess-task-2-part-1/cleaned_corpus.csv
+Input  : ../task2a-clean/cleaned_corpus.csv
 Output : tokenized/          — tokenized outputs (.csv each)
          models/             — saved sub-word tokenizer models
          plots/              — visualisations
@@ -62,7 +62,7 @@ from nltk.stem import WordNetLemmatizer
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT       = Path(__file__).parent.parent
-CORPUS_CSV = ROOT / "data-clean&preprocess-task-2-part-1" / "cleaned_corpus.csv"
+CORPUS_CSV = ROOT / "task2a-clean" / "cleaned_corpus.csv"
 OUT_DIR    = Path(__file__).parent
 TOK_DIR    = OUT_DIR / "tokenized"
 MOD_DIR    = OUT_DIR / "models"

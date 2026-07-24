@@ -6,7 +6,7 @@ multiprocessing.set_start_method("fork", force=True)
 """
 Task 3(a) — Post Categorisation via Clustering & Topic Modelling
 =================================================================
-Input  : ../data-clean&preprocess-task-2-part-1/cleaned_corpus.csv
+Input  : ../task2a-clean/cleaned_corpus.csv
 Output : labeled_corpus.csv      — corpus with silver-standard cluster labels
          clustering_report.txt   — full findings report
          plots/                  — all visualisations
@@ -61,7 +61,7 @@ from gensim.utils import simple_preprocess
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT       = Path(__file__).parent.parent
-CORPUS_CSV = ROOT / "data-clean&preprocess-task-2-part-1" / "cleaned_corpus.csv"
+CORPUS_CSV = ROOT / "task2a-clean" / "cleaned_corpus.csv"
 OUT_DIR    = Path(__file__).parent
 PLOTS_DIR  = OUT_DIR / "plots"
 PLOTS_DIR.mkdir(exist_ok=True)
